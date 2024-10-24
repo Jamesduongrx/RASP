@@ -70,7 +70,7 @@ Examples:
 .. maxseq(tokens)("ababcabab"); #check
          =  [c]*9 (strings)
 ```
-#Problem 5: Write a function that counts the number of times a certain token appears in the input sequence. 
+# Problem 5: Write a function that performs sequence reversal "autogeneratively"
 ```
 >> dollar_pos = select_from_first(tokens, "$");
      selector: dollar_pos
@@ -95,4 +95,45 @@ def reverse_ag(seq) {
 .. reverse_ag(tokens)("hello$X");
          =  [h, e, l, l, o, $, o] (strings)
 >> 
+```
+# Problem 6: Write a function that counts the number of times a certain token appears in the input sequence. 
+```
+.. def howmany(seq, token) {
+..       return selector_width(select(seq == token, 1, ==))
+          if contains(seq, token) else 0;
+..   }
+     console function: howmany(seq, token)
+>> 
+.. howmany(tokens, "a")("hello");
+         =  [0]*5 (ints)
+>> 
+.. howmany(tokens, "h")("hello");
+         =  [1]*5 (ints)
+>> 
+.. howmany(tokens, "l")("hello");
+         =  [2]*5 (ints)
+```
+
+# Problem 7: Write a function that counts the number of times a certain token has appeared in the input sequence so far.
+```
+.. def howmany(seq, token) {
+..       mask_ag = select(indices, indices, <=);
+..       return round((indices + 1) * aggregate(mask_ag, indicator(seq == token)));
+..   }
+     console function: howmany(seq, token)
+>> 
+.. howmany(tokens, "a")("hello");
+         =  [0]*5 (ints)
+```
+
+# Problem 8: Seeing if the token matches with character. 
+```
+def count_char(seq, char) {
+..       return aggregate(full_s, indicator(tokens == char));
+..   }
+     console function: count_char(seq, char)
+
+ count_char(tokens, "a");
+     s-op: out
+         Example: out("hello") = [0.0]*5 (floats)
 ```
