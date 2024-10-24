@@ -56,3 +56,17 @@ Examples:
 .. swap(tokens)("ababab");
          =  [b, a, b, a, b, a] (strings)
 ```
+
+# Problem 4: Write a function that returns the maximum value in the sequence repeated for every position
+
+```
+>> def maxseq(seq) {
+..       sorted = sort(seq, seq);
+..       lastone = length - 1;
+..       return load_from_location(sorted, lastone);
+..   }
+     console function: maxseq(seq)
+>> 
+.. maxseq(tokens)("ababcabab"); #check
+         =  [c]*9 (strings)
+```
