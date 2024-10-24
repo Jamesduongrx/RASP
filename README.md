@@ -31,7 +31,7 @@ Examples:
          =  [l, l, o, h, e] (strings)
 ```
 
-# Problem 3: 
+# Problem 3: Write a function that takes a sequence as input and "swaps every letter with its neighbor"
 ```
 
 >> def swaptwo(seq) {
