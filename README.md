@@ -1,6 +1,6 @@
 # RASP
 
-# Problem 1: Write an s-op that contains the indices in reverse order:
+#Problem 1: Write an s-op that contains the indices in reverse order:
 
 ```
 >> reverse_indices = length - indices - 1;
@@ -10,7 +10,7 @@
 .. reverse_indices("hello");
          =  [4, 3, 2, 1, 0] (ints)
 ```
-# Problem 2: Write a function that "rotates" the input text by the specified number of characters:
+#Problem 2: Write a function that "rotates" the input text by the specified number of characters:
 ```
 >> def rotate(seq, shift) {
 ..       rotated_indices = (indices + shift) % length;
@@ -31,7 +31,7 @@ Examples:
          =  [l, l, o, h, e] (strings)
 ```
 
-# Problem 3: Write a function that takes a sequence as input and "swaps every letter with its neighbor"
+#Problem 3: Write a function that takes a sequence as input and "swaps every letter with its neighbor"
 ```
 
 >> def swaptwo(seq) {
@@ -57,7 +57,7 @@ Examples:
          =  [b, a, b, a, b, a] (strings)
 ```
 
-# Problem 4: Write a function that returns the maximum value in the sequence repeated for every position
+#Problem 4: Write a function that returns the maximum value in the sequence repeated for every position
 
 ```
 >> def maxseq(seq) {
@@ -70,7 +70,7 @@ Examples:
 .. maxseq(tokens)("ababcabab"); #check
          =  [c]*9 (strings)
 ```
-# Problem 5: Write a function that performs sequence reversal "autogeneratively"
+#Problem 5: Write a function that performs sequence reversal "autogeneratively"
 ```
 >> dollar_pos = select_from_first(tokens, "$");
      selector: dollar_pos
@@ -96,7 +96,7 @@ def reverse_ag(seq) {
          =  [h, e, l, l, o, $, o] (strings)
 >> 
 ```
-# Problem 6: Write a function that counts the number of times a certain token appears in the input sequence. 
+#Problem 6: Write a function that counts the number of times a certain token appears in the input sequence. 
 ```
 .. def howmany(seq, token) {
 ..       return selector_width(select(seq == token, 1, ==))
@@ -114,7 +114,7 @@ def reverse_ag(seq) {
          =  [2]*5 (ints)
 ```
 
-# Problem 7: Write a function that counts the number of times a certain token has appeared in the input sequence so far.
+#Problem 7: Write a function that counts the number of times a certain token has appeared in the input sequence so far.
 ```
 .. def howmany(seq, token) {
 ..       mask_ag = select(indices, indices, <=);
@@ -126,7 +126,7 @@ def reverse_ag(seq) {
          =  [0]*5 (ints)
 ```
 
-# Problem 8: Seeing if the token matches with character. 
+#Problem 8: Seeing if the token matches with character. 
 ```
 def count_char(seq, char) {
 ..       return aggregate(full_s, indicator(tokens == char));
