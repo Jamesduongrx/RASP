@@ -70,3 +70,29 @@ Examples:
 .. maxseq(tokens)("ababcabab"); #check
          =  [c]*9 (strings)
 ```
+#Problem 5: Write a function that counts the number of times a certain token appears in the input sequence. 
+```
+>> dollar_pos = select_from_first(tokens, "$");
+     selector: dollar_pos
+         Example:
+
+def reverse_ag(seq) {
+..       dollar_loc = select_from_first(tokens, "$");
+..       rest_string = aggregate(dollar_loc, indices);
+..       return seq if indices <= rest_string else aggregate(select(indices, rest_string * 2 - indices, ==), seq, "");
+..   }
+     console function: reverse_ag(seq)
+>>
+```
+
+```
+.. reverse_ag(tokens)("hello$     ");
+
+         =  [h, e, l, l, o, $, o, l, l, e, h] (strings)
+>> .. reverse_ag(tokens)("hello$ ");
+         =  [h, e, l, l, o, $, o] (strings)
+>> 
+.. reverse_ag(tokens)("hello$X");
+         =  [h, e, l, l, o, $, o] (strings)
+>> 
+```
