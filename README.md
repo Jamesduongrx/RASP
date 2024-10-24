@@ -30,3 +30,29 @@ Examples:
 .. rotate(tokens, 2)("hello");
          =  [l, l, o, h, e] (strings)
 ```
+
+# Problem 3: 
+```
+
+>> def swaptwo(seq) {
+..       return aggregate(select(indices, indices + 1, ==), seq, "x") 
+..              if indices % 2 == 0 
+..              else aggregate(select(indices, indices - 1, ==), seq, "x");
+..   }
+>> 
+.. def swap(seq) {
+..       return aggregate(select(indices, indices, ==), seq, "x")
+..              if length % 2 == 1
+          and indices == length - 1
+..              else swaptwo(seq);
+..   }
+>>
+```
+```
+
+.. swap(tokens)("hello");
+         =  [e, h, l, l, o] (strings)
+>> 
+.. swap(tokens)("ababab");
+         =  [b, a, b, a, b, a] (strings)
+```
