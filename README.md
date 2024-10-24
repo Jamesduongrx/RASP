@@ -11,13 +11,16 @@
          =  [4, 3, 2, 1, 0] (ints)
 ```
 # Problem 2: Write a function that "rotates" the input text by the specified number of characters:
-
+```
 >> def rotate(seq, shift) {
 ..       rotated_indices = (indices + shift) % length;
 ..       shifted_seq = aggregate(select(indices, rotated_indices, ==), seq);
 ..       return shifted_seq;
 ..   }
      console function: rotate(seq, shift)
+```
+Examples:
+```
 >> rotate(tokens, 0)("hello");
          =  [h, e, l, l, o] (strings)
 >> 
@@ -26,4 +29,4 @@
 >> 
 .. rotate(tokens, 2)("hello");
          =  [l, l, o, h, e] (strings)
-
+```
